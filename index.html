@@ -5,13 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>golobac</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
     <div id="title">test</div>
     <div id="menu">
-        <div class="item-menu">main</div>
-        <div class="item-menu">products</div>
-        <div class="item-menu">order</div>
+        <div class="item-menu" id="main" onclick="click_item('main')" >main</div>
+        <div class="item-menu active" id="products" onclick="click_item('products')" >products</div>
+        <div class="item-menu" id="order" onclick="click_item('order')" >order</div>
+        
+    </div>
+    <div class="main-part" >
+        <div class="name_product"></div>
+        <img src="" alt="" class="img_product">
+        <div class="price"></div>
+        <button class="add_to_cart"></button>
     </div>
 </body>
 </html>

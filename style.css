@@ -38,6 +38,11 @@ body{
     text-shadow: 0 0 15px rgb(43, 40, 40);;
 }
 
+.active{
+    color: dodgerblue;
+    text-shadow: 0 0 15px rgb(43, 40, 40);
+}
+
 
 @media (max-width:500px) {
     #title{
