@@ -1,6 +1,12 @@
+@font-face {
+    font-family: main_font;
+    src: url(files/font.woff2);
+}
+
 *{
     padding: 0;
     margin: 0;
+    font-family: main_font, sans-serif;
 }
 
 
@@ -12,6 +18,8 @@ body{
     width: 100vw;
     text-align: center;
     font-size: 3.5vw;
+    margin-bottom: 2vh;
+    margin-top: 2vh;
 }
 
 #menu{
@@ -58,3 +66,23 @@ body{
     
 }
 
+.name_product{
+    text-align: center;
+    font-size: 7vw;
+    margin-top: 2vw;
+    margin-bottom: 2vw;
+}
+
+.img_product{
+    width: 70vw;
+    margin-left: 15vw;
+    margin-top: 1.5vh;
+
+}
+.price{
+    position: fixed;
+    top: 65vh;
+    width: 100vw;
+    text-align: center;
+    font-size: 5vw;
+}
