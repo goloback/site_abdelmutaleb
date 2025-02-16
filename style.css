@@ -98,3 +98,42 @@ body{
     width: 40vw;
     font-size: 5vw;
 }
+
+.general-part{
+    display: flex;    
+    flex-direction: column;
+    height: 60vh;
+    justify-content: space-around;
+}
+
+.contacts{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 50px;
+    background-color: rgb(235, 235, 200);
+    text-align: center;
+    font-size: 28px;
+    margin-top: 15px;
+
+}
+
+.plesure{
+    border: 1px solid black;
+    font-size: 20px;
+    margin-left: 15px;
+    margin-right: 15px;
+    padding: 15px;
+}
+
+.turn-left{
+    transform: rotate(-15deg);
+}
+.turn-right{
+    transform: rotate(10deg);
+}
+
+.main-contacts{
+    display: none;
+}

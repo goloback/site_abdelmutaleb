@@ -106,14 +106,23 @@ function click_item(id){
     var active_menu = document.getElementById(id);
     active_menu.classList.add("active");
     if (id == 'products'){
+        document.getElementsByClassName('main-part')[0].style.display = 'block';
+        document.getElementsByClassName('general-part')[0].style.display = 'none';
         create_content_products();
+        document.getElementsByClassName('main-contacts')[0].style.display = 'none';
         name_page = 'products';
     }
-    else if(id == 'main'){
-        name_page = 'main';
+    else if(id == 'reviews'){
+        name_page = 'reviews';
+        document.getElementsByClassName('main-part')[0].style.display = 'none';
+        document.getElementsByClassName('general-part')[0].style.display = 'flex';
+        document.getElementsByClassName('main-contacts')[0].style.display = 'none';
     }
-    else if(id == 'order'){
-        name_page = 'order';
+    else if(id == 'contacts'){
+        name_page = 'contacts';
+        document.getElementsByClassName('main-part')[0].style.display = 'none';
+        document.getElementsByClassName('general-part')[0].style.display = 'none';
+        document.getElementsByClassName('main-contacts')[0].style.display = 'block';
     }
 
 }
