@@ -122,7 +122,7 @@ function click_item(id){
         name_page = 'contacts';
         document.getElementsByClassName('main-part')[0].style.display = 'none';
         document.getElementsByClassName('general-part')[0].style.display = 'none';
-        document.getElementsByClassName('main-contacts')[0].style.display = 'block';
+        document.getElementsByClassName('main-contacts')[0].style.display = 'flex';
     }
 
 }

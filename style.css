@@ -135,5 +135,30 @@ body{
 }
 
 .main-contacts{
+    margin-top: 5vh;
     display: none;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.item-contact{
+    margin-left: 3px;
+    margin-right: 3px;
+    margin-bottom: 20px;
+    border: 1px solid black;
+    width: 47vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 25px;
+    font-size: 17px;
+}
+
+.move_left{
+    margin-left: -5px;
+}
+.move_left10{
+    margin-left: -10px;
 }
