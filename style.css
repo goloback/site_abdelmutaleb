@@ -159,6 +159,13 @@ body{
 .move_left{
     margin-left: -5px;
 }
+
 .move_left10{
     margin-left: -10px;
+}
+
+.lan{
+    position: fixed;
+    right: 3px;
+    top: 3px;
 }
