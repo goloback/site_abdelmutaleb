@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>golobac</title>
     <link rel="stylesheet" href="style.css">
+    <script src="changelan.js"></script>    
     <script src="script.js" defer></script>
 </head>
 <body>
-    <div id="title">My job</div>
+    <div class = 'cl' id="title">My job</div>
     <div class="lan">
         <select>
             <div class="options">
@@ -18,13 +19,13 @@
         </select>
     </div>
     <div id="menu">
-        <div class="item-menu active" id="reviews" onclick="click_item('reviews')" >reviews</div>
-        <div class="item-menu" id="products" onclick="click_item('products')" >products</div>
-        <div class="item-menu" id="contacts" onclick="click_item('contacts')" >contacts</div>
+        <div class="item-menu active cl" id="reviews" onclick="click_item('reviews')" >reviews</div>
+        <div class="item-menu cl" id="products" onclick="click_item('products')" >products</div>
+        <div class="item-menu cl" id="contacts" onclick="click_item('contacts')" >contacts</div>
         
     </div>
     <div class="main-part" >
-        <div class="name_product"></div>
+        <div class="name_product" id="name_work" ></div>
         <img src="" alt="" class="img_product">
         <div class="price">
             

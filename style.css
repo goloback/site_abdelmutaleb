@@ -97,6 +97,7 @@ body{
 .luanguage{
     width: 40vw;
     font-size: 5vw;
+
 }
 
 .general-part{
@@ -168,4 +169,8 @@ body{
     position: fixed;
     right: 3px;
     top: 3px;
+}
+
+.list_price{
+    margin-left: 30vw;
 }

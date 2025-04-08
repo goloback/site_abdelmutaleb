@@ -1,14 +1,30 @@
-var engineer = 'engineer';
+var engineer = 'Engineer';
 var engineer_img = 'files/th.jpg';
 var engineer_price = '15$/1h';
-var pass_rus_exams = 'student'
+var pass_rus_exams = 'Student'
 var pass_rus_exams_img = 'files/hat.png';
 var pass_rus_exams_price = '10$/exam';
-var translator = 'translator';
+var translator = 'Translator';
 var translator_img = 'files/translate.png';
 var translator_price = '5$/1list';
 var translator_price2 = '15$/1h';
-var name_page = 'products';
+var name_page = 'reviews';
+var dictionary = {
+    'title':['My job', 'Моя работа'], 
+    'reviews':['reviews', 'Отзывы'],
+    'products':['products', 'Услуги'],
+    'contacts':['contacts', 'контакты'],
+
+};
+var dictionary_work = {
+    0: ['Engineer', 'Инженер'], 
+    1: ['Student', 'Студент'],
+    2: ['Translator', 'Переводчик']
+}
+
+var price_engineer_translate = [engineer_price, '15$/1ч'];
+
+var price_exam_translate = [pass_rus_exams_price, '10$/экзамен'];
 
 var job = [engineer, pass_rus_exams, translator];
 
@@ -18,11 +34,17 @@ var job_price = [engineer_price, pass_rus_exams_price, [translator_price, transl
 
 var current_job = 0;
 
-/*
-do function of price from html
-make 2 or 3 jobs what you can make and add it up
+var lan = ['en', 'ru'];
 
-*/
+var select = document.getElementsByTagName('select')[0];
+select.addEventListener('change', changeLanguageUrl);
+
+function changeLanguageUrl(){
+    var value = select.value;
+    location.href = window.location.pathname + '#' + value;
+    location.reload();
+}
+
 
 function next_page(){
     if (name_page == 'products'){
@@ -52,6 +74,7 @@ function prev_page(){
 function show_current_job(){
     var mainpart = document.getElementsByClassName('main-part')[0];
     var luanguage = document.getElementsByClassName('luanguage');
+    console.log(luanguage.length);
     if (luanguage.length == 1){
         mainpart.removeChild(luanguage[0]);
     }
@@ -69,6 +92,7 @@ function show_current_job(){
         price1.style.position = 'absolute';
         price1.style.left = '15vw';
         price1.style.bottom = '-5vh';
+        price1.classList.add('list_price');
         var price2 = document.createElement('div');
         price.appendChild(price2);
         price2.textContent = job_price[current_job][1];
@@ -84,10 +108,9 @@ function show_current_job(){
     else{
         price.textContent = job_price[current_job];
     }
+    applyLan();
 }
         
-
-
 function create_content_products(){
     var name_product = document.getElementsByClassName("name_product")[0];
     name_product.textContent = engineer;
@@ -103,6 +126,12 @@ function click_item(id){
         items[index].classList.remove('active');
 
     }
+    var mainpart = document.getElementsByClassName('main-part')[0];
+    var luanguage = document.getElementsByClassName('luanguage');
+    console.log(luanguage.length);
+    if (luanguage.length == 1){
+        mainpart.removeChild(luanguage[0]);
+    }
     var active_menu = document.getElementById(id);
     active_menu.classList.add("active");
     if (id == 'products'){
@@ -111,6 +140,7 @@ function click_item(id){
         create_content_products();
         document.getElementsByClassName('main-contacts')[0].style.display = 'none';
         name_page = 'products';
+        applyLan();
     }
     else if(id == 'reviews'){
         name_page = 'reviews';
@@ -125,4 +155,55 @@ function click_item(id){
         document.getElementsByClassName('main-contacts')[0].style.display = 'flex';
     }
 
+
 }
+
+function changeLanguage(){
+    var hash = window.location.hash;
+    hash = hash.substr(1);    
+    console.log(hash);
+
+  for (var i = 0; i < lan.length; i++){
+    console.log(lan[i]);
+    if (lan[i] == hash){
+        select.value = hash;
+        applyLan();
+        return;
+    }
+  }
+    location.href = window.location.pathname + '#en';
+
+    applyLan();
+    location.reload();
+
+}
+
+function applyLan(){
+    var index = 0;
+    if (select.value == 'en'){
+        index = 0;
+    }
+    else if(select.value == 'ru'){
+        index = 1;
+    }
+
+    var keys = Object.keys(dictionary);
+    console.log(dictionary);
+    for (var i = 0; i < keys.length; i++){
+        var object = document.getElementById(keys[i]);
+        object.textContent = dictionary[keys[i]][index];
+    }
+    if (name_page == 'products'){
+        document.getElementById('name_work').textContent = dictionary_work[current_job][index];
+        if (current_job == 0){
+            document.getElementsByClassName('price')[0].textContent = price_engineer_translate[index];
+        }
+        else if (current_job == 1){
+            document.getElementsByClassName('price')[0].textContent = price_exam_translate[index];
+        }  
+    }
+    
+}
+
+changeLanguage();
+
