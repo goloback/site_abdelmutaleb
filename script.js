@@ -10,7 +10,7 @@ var translator_price = '5$/1list';
 var translator_price2 = '15$/1h';
 var name_page = 'reviews';
 var dictionary = {
-    'title':['My job', 'Моя работа'], 
+    'title':['My promotions', 'Мои услуги'], 
     'reviews':['reviews', 'Отзывы'],
     'products':['products', 'Услуги'],
     'contacts':['contacts', 'контакты'],
@@ -20,8 +20,14 @@ var dictionary_work = {
     0: ['Engineer', 'Инженер'], 
     1: ['Student', 'Студент'],
     2: ['Translator', 'Переводчик']
-}
+};
 
+
+var translate_dictionary = {
+    0:[translator_price, '5$/страница'],
+    1: [translator_price2, '15$/1ч'], 
+    2:['Arabic-English, Arabic-Russian, English-Russian', 'Арабский-Английский, Арабский-Русский, Английский-Русский']
+};
 var price_engineer_translate = [engineer_price, '15$/1ч'];
 
 var price_exam_translate = [pass_rus_exams_price, '10$/экзамен'];
@@ -73,10 +79,10 @@ function prev_page(){
 }
 function show_current_job(){
     var mainpart = document.getElementsByClassName('main-part')[0];
-    var luanguage = document.getElementsByClassName('luanguage');
-    console.log(luanguage.length);
-    if (luanguage.length == 1){
-        mainpart.removeChild(luanguage[0]);
+    var language = document.getElementsByClassName('language');
+    console.log(language.length);
+    if (language.length == 1){
+        mainpart.removeChild(language[0]);
     }
     var name_product = document.getElementsByClassName("name_product")[0];
     name_product.textContent = job[current_job];
@@ -101,7 +107,7 @@ function show_current_job(){
         price2.style.bottom = '-5vh';
         var discription = document.createElement('div');
         discription.textContent = 'Arabic-English, Arabic-Russian, English-Russian';
-        discription.classList.add('luanguage');
+        discription.classList.add('language');
         mainpart.appendChild(discription);
  
     }
@@ -127,14 +133,15 @@ function click_item(id){
 
     }
     var mainpart = document.getElementsByClassName('main-part')[0];
-    var luanguage = document.getElementsByClassName('luanguage');
-    console.log(luanguage.length);
-    if (luanguage.length == 1){
-        mainpart.removeChild(luanguage[0]);
+    var language = document.getElementsByClassName('language');
+    console.log(language.length);
+    if (language.length == 1){
+        mainpart.removeChild(language[0]);
     }
     var active_menu = document.getElementById(id);
     active_menu.classList.add("active");
     if (id == 'products'){
+        current_job = 0;
         document.getElementsByClassName('main-part')[0].style.display = 'block';
         document.getElementsByClassName('general-part')[0].style.display = 'none';
         create_content_products();
@@ -201,6 +208,38 @@ function applyLan(){
         else if (current_job == 1){
             document.getElementsByClassName('price')[0].textContent = price_exam_translate[index];
         }  
+        else if (current_job == 2){
+            var container_price = document.getElementsByClassName('price')[0];
+            container_price.children[0].textContent = translate_dictionary[0][index];
+            if(index == 1){
+            container_price.children[0].classList.add ('change_margin');
+        }
+        else{
+           for (var i = 0; i < container_price.children[0].classList.length; i++)
+           {
+            if (container_price.children[0].classList[i] == 'change_margin')
+            {
+            container_price.children[0].classList.remove('change_margin');
+            break;
+            }
+           }
+
+        }
+            container_price.children[1].textContent = 
+            translate_dictionary[1][index];
+
+        }
+        if (document.getElementsByClassName('language').length > 0)
+        {
+        document.getElementsByClassName('language')[0].textContent = translate_dictionary[2][index];
+        if(index == 0){
+            document.getElementsByClassName('language')[0].classList.remove('language_rus');
+        }
+        else if (index == 1){
+            document.getElementsByClassName('language')[0].classList.add('language_rus');
+        }
+        }
+
     }
     
 }

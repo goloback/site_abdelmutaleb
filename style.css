@@ -89,15 +89,22 @@ body{
 }
 .price{
     position: fixed;
-    top: 65vh;
+    top: 68vh;
     width: 100vw;
     text-align: center;
     font-size: 5vw;
 }
-.luanguage{
+.language{
     width: 40vw;
     font-size: 5vw;
+    margin-left: 3vw;
 
+}
+
+.language_rus{
+    width: 45vw;
+    font-size: 4vw;
+    margin-left: 2vw;
 }
 
 .general-part{
@@ -173,4 +180,8 @@ body{
 
 .list_price{
     margin-left: 30vw;
+}
+
+.change_margin{
+    margin-left: 25vw;
 }
